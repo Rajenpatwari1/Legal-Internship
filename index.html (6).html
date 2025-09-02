@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal & Compliance Internship - OnePaper Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: #0A0A14;
+            color: #E5E7EB;
+        }
+
+        /* Enhanced animated background */
+        .dynamic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, #1a0b2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Glass morphism cards */
+        .glass-card {
+            background: rgba(17, 25, 40, 0.75);
+            backdrop-filter: blur(16px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.125);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Animated gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Enhanced responsibility cards */
+        .responsibility-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .responsibility-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .responsibility-card:hover::before {
+            left: 100%;
+        }
+
+        .responsibility-card:hover {
+            transform: scale(1.05);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        /* Improved icon styling */
+        .icon-container {
+            background: linear-gradient(135deg, #8B5CF6, #EC4899);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 12px 28px; /* Slightly smaller padding */
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 16px; /* Smaller font size */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            transform-origin: center;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Particle effect for button */
+        .cta-button::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(4); opacity: 0; }
+        }
+
+        /* Section dividers */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #8B5CF6, transparent);
+            margin: 3rem 0;
+        }
+
+        /* Enhanced typography */
+        .section-title {
+            font-size: 2.25rem; /* Slightly smaller */
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2.5rem; /* Reduced margin */
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #8B5CF6, #EC4899);
+            border-radius: 2px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem; /* Smaller padding */
+            margin: 1.5rem 0; /* Smaller margin */
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Updated header title styling */
+        .header-title {
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-title::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.2), transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            filter: blur(30px);
+            animation: pulseGlow 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+        }
+
+        /* Updated gradient text for title */
+        .title-gradient-text {
+            background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="dynamic-bg"></div>
+
+    <main class="min-h-screen relative z-10">
+        <!-- Enhanced Header Section -->
+        <header class="text-center pt-16 pb-12 px-4">
+            <div class="header-title">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white mb-4 tracking-tight">
+                    Legal & Compliance
+                    <span class="title-gradient-text block">Internship</span>
+                </h1>
+                <p class="text-lg md:text-2xl font-light text-gray-300 mb-6">
+                    <a href="https://www.onepaper.in/" target="_blank" class="hover:text-purple-300 transition-colors duration-300">
+                        OnePaper Research Analyst Pvt. Ltd.
+                    </a>
+                </p>
+                <div class="max-w-2xl mx-auto text-base text-gray-400 leading-relaxed">
+                    Shape the future of financial compliance in India's leading SEBI-certified research firm
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Container -->
+        <div class="max-w-6xl mx-auto px-4 pb-16">
+            
+            <!-- Hero CTA Section -->
+            <section class="text-center mb-12">
+                <div class="glass-card inline-block p-6 floating">
+                    <h2 class="text-xl md:text-2xl font-bold text-white mb-3">Unlock Your Future in Financial Compliance.</h2>
+                    <p class="text-gray-300 mb-5 text-base">Start your journey with a SEBI-certified firm. Gain real-world experience, expert mentorship, and a competitive stipend.</p>
+                    <button class="cta-button">
+                        Apply Now - ₹10,000/month
+                    </button>
+                </div>
+            </section>
+
+            <!-- About & Why Join Section -->
+            <section class="mb-12">
+                <div class="glass-card p-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-white mb-4">About OnePaper</h2>
+                            <div class="space-y-3 text-gray-300 text-base leading-relaxed">
+                                <p>Founded in 2020, OnePaper Research Analyst Pvt. Ltd. is a SEBI-certified financial research company providing in-depth market research, intraday trading insights, and equity analysis.</p>
+                                <p>Our mission is to empower traders, investors, and businesses with data-driven market intelligence.</p>
+                                <div class="highlight-box mt-4">
+                                    <p class="text-purple-300 font-semibold text-sm">🏆 SEBI Certified Research Firm</p>
+                                    <p class="text-xs text-gray-400 mt-1">Regulated and trusted by India's securities market regulator</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-white mb-4">Why Choose Us?</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-white mb-1">Real Industry Exposure</h3>
+                                        <p class="text-gray-300 text-sm">Work directly with SEBI regulations in a live trading environment</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-white mb-1">Expert Mentorship</h3>
+                                        <p class="text-gray-300 text-sm">Learn from seasoned professionals with years of experience</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-content-center flex-shrink-0 mt-1">
+                                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-white mb-1">Career Foundation</h3>
+                                        <p class="text-gray-300 text-sm">Build credentials for finance, law, and compliance sectors</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Key Responsibilities Section with Cards -->
+            <section class="mb-12">
+                <h2 class="section-title text-white">What You'll Do</h2>
+                <div class="glass-card p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Card 1: Audit & Compliance -->
+                        <div class="responsibility-card p-4 rounded-lg border-2 border-transparent hover:border-purple-500">
+                            <div class="icon-container w-16 h-16">
+                                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.011 12.011 0 002.944 12c.168 1.488.583 2.903 1.258 4.212-.562 1.066-.948 2.18-.948 3.328a.75.75 0 001.5 0c0-1.042.34-2.05.894-3.03l.006-.01c1.238-2.27 3.518-3.926 6.16-4.521 1.76-.39 3.59-.283 5.27-.03a.75.75 0 00.106-1.49l-.006.01c-1.68-.25-3.51-.357-5.27.03z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white text-center mb-1">Audit & Compliance</h3>
+                            <p class="text-gray-400 text-xs text-center">Analyze team calls for regulatory alignment and ensure SEBI compliance standards.</p>
+                        </div>
+
+                        <!-- Card 2: Documentation -->
+                        <div class="responsibility-card p-4 rounded-lg border-2 border-transparent hover:border-pink-500">
+                            <div class="icon-container w-16 h-16">
+                                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m-5 4H8a2 2 0 01-2-2V7a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V19a2 2 0 01-2 2h-4.586a1 1 0 01-.707-.293l-4.414-4.414a1 1 0 01-.293-.707V12z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white text-center mb-1">Documentation</h3>
+                            <p class="text-gray-400 text-xs text-center">Assist with compliance documentation, reporting, and regulatory submissions.</p>
+                        </div>
+
+                        <!-- Card 3: Reporting -->
+                        <div class="responsibility-card p-4 rounded-lg border-2 border-transparent hover:border-teal-500">
+                            <div class="icon-container w-16 h-16">
+                                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.998 9.998 0 0112 21a9.998 9.998 0 01-1-17.945M12 3.055a9.998 9.998 0 019 17.945M12 21a9.998 9.998 0 01-9-17.945M12 21a9.998 9.998 0 010-18" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white text-center mb-1">Reporting</h3>
+                            <p class="text-gray-400 text-xs text-center">Draft detailed audit reports and share compliance findings with stakeholders.</p>
+                        </div>
+                        
+                        <!-- Card 4: Team Support -->
+                        <div class="responsibility-card p-4 rounded-lg border-2 border-transparent hover:border-orange-500">
+                            <div class="icon-container w-16 h-16">
+                                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white text-center mb-1">Team Support</h3>
+                            <p class="text-gray-400 text-xs text-center">Provide operational support and assist with day-to-day compliance activities.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Candidate Profile & Benefits -->
+            <section class="mb-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="glass-card p-6">
+                        <h2 class="text-2xl font-bold text-white mb-6">Who We're Looking For</h2>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-lg font-semibold text-purple-300 mb-3">Educational Background</h3>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <div class="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                                        <span>LLB / LLM students or graduates</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <div class="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                                        <span>MBA in Finance students or graduates</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <div class="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                                        <span>Freshers with keen interest in compliance</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold text-purple-300 mb-3">Key Skills & Mindset</h3>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <div class="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                                        <span>Strong attention to detail</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <div class="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                                        <span>Excellent communication skills</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <div class="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                                        <span>Proactive learning mindset</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <div class="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                                        <span>Basic knowledge of financial regulations (preferred)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card p-6">
+                        <h2 class="text-2xl font-bold text-white mb-6">What You Get</h2>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-lg font-semibold text-purple-300 mb-3">Financial Benefits</h3>
+                                <div class="highlight-box">
+                                    <p class="text-xl font-bold text-white mb-1">₹10,000 per month</p>
+                                    <p class="text-gray-300 text-sm">Competitive stipend for 3-month program</p>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold text-purple-300 mb-3">Career Benefits</h3>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <div class="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                                        <span>Official internship certificate</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <div class="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                                        <span>Detailed experience letter</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <div class="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                                        <span>SEBI-regulated firm experience</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <div class="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                                        <span>Direct mentorship from experts</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Program Details -->
+            <section class="mb-12">
+                <h2 class="section-title text-white">Program Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card p-6 text-center">
+                        <div class="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Duration</h3>
+                        <p class="text-2xl font-bold text-purple-300">3 Months</p>
+                        <p class="text-gray-400 text-sm mt-1">Full-time intensive program</p>
+                    </div>
+                    
+                    <div class="glass-card p-6 text-center">
+                        <div class="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Stipend</h3>
+                        <p class="text-2xl font-bold text-green-400">₹10,000</p>
+                        <p class="text-gray-400 text-sm mt-1">Per month</p>
+                    </div>
+                    
+                    <div class="glass-card p-6 text-center">
+                        <div class="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Location</h3>
+                        <p class="text-base font-semibold text-orange-400">Bangalore</p>
+                        <p class="text-gray-400 text-xs mt-1">J.P. Nagar, Karnataka</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Working Hours -->
+            <section class="mb-12">
+                <div class="glass-card p-6 text-center">
+                    <h2 class="text-2xl font-bold text-white mb-5">Working Hours</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-purple-300 mb-3">Monday to Friday</h3>
+                            <p class="text-xl font-bold text-white">9:00 AM – 6:00 PM</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-purple-300 mb-3">Selected Saturdays</h3>
+                            <p class="text-xl font-bold text-white">9:30 AM – 2:00 PM</p>
+                            <p class="text-xs text-gray-400 mt-1">2nd, 3rd & 4th Saturdays</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA Section -->
+            <section class="text-center">
+                <div class="glass-card p-10">
+                    <h2 class="text-3xl font-bold text-white mb-4">Ready to Start Your Journey?</h2>
+                    <p class="text-base text-gray-300 mb-6 max-w-xl mx-auto">
+                        Don't miss this opportunity to work with India's leading SEBI-certified research firm. Apply now and take the first step towards a successful career in financial compliance.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers for CTA buttons
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Using console.log instead of alert() for a better user experience in the iframe environment.
+                    console.log('Thank you for your interest! Please send your resume to careers@onepaper.in');
+                });
+            });
+
+            // Add hover effects for cards
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.37)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
